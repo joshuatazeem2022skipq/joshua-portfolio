@@ -10,11 +10,9 @@ import { CAMERA_CURVE, JOURNEY_SECTIONS, WAYPOINTS } from "./journey";
 import { useGlowTexture } from "./useGlowTexture";
 import {
   EarthHome,
-  GoldenVenus,
   JupiterPlanet,
   MarsBelt,
   NeptuneStation,
-  RealMoon,
   SaturnPlanet,
   UranusBeacon,
 } from "./Planets";
@@ -289,10 +287,8 @@ function SceneContent({ mobile }: { mobile: boolean }) {
       <JupiterPlanet index={2} />
       <NeptuneStation index={3} />
       <MarsBelt index={4} />
-      <RealMoon index={5} />
-      <GoldenVenus index={6} />
-      <UranusBeacon index={7} />
-      <EarthHome index={8} />
+      <UranusBeacon index={5} />
+      <EarthHome index={6} />
 
       <CameraRig />
 

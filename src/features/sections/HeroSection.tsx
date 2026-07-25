@@ -115,4 +115,4 @@ export function HeroSection() {
   );
 }
 
-const JOURNEY_LENGTH = 8;
+const JOURNEY_LENGTH = 6;

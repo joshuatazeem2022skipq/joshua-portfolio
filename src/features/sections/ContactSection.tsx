@@ -57,7 +57,7 @@ export function ContactSection() {
     <DestinationSection id="contact" side="center" className="min-h-[110vh] pb-28">
       <HoloPanel>
         <DestinationHeader
-          index={8}
+          index={6}
           label="Contact"
           title="Through the wormhole — let's talk"
           description="The journey ends where a new one begins. Reach out for platform architecture, full-stack delivery, or technical leadership."

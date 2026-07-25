@@ -13,8 +13,6 @@ export const JOURNEY_SECTIONS: JourneySection[] = [
   { id: "skills", label: "Skills", panelSide: "right" },
   { id: "experience", label: "Experience", panelSide: "left" },
   { id: "projects", label: "Projects", panelSide: "right" },
-  { id: "education", label: "Education", panelSide: "left" },
-  { id: "achievements", label: "Achievements", panelSide: "right" },
   { id: "resume", label: "Resume", panelSide: "left" },
   { id: "contact", label: "Contact", panelSide: "center" },
 ];
@@ -28,10 +26,8 @@ export const WAYPOINTS = [
   new THREE.Vector3(-4.5, -1, -SPACING * 2),
   new THREE.Vector3(5, 1.8, -SPACING * 3),
   new THREE.Vector3(-5, -1.5, -SPACING * 4),
-  new THREE.Vector3(4.5, 1.2, -SPACING * 5),
-  new THREE.Vector3(-4, -0.8, -SPACING * 6),
-  new THREE.Vector3(4, 1, -SPACING * 7),
-  new THREE.Vector3(0, 0.2, -SPACING * 8),
+  new THREE.Vector3(4, 1, -SPACING * 5),
+  new THREE.Vector3(0, 0.2, -SPACING * 6),
 ];
 
 export const CAMERA_CURVE = new THREE.CatmullRomCurve3(

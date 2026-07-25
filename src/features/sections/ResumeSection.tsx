@@ -15,7 +15,7 @@ export function ResumeSection() {
     <DestinationSection id="resume" side="left">
       <HoloPanel>
         <DestinationHeader
-          index={7}
+          index={5}
           label="Resume"
           title="The flight manifest"
           description="The complete record — view it, download it, or print it."
