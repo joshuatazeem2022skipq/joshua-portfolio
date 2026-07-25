@@ -3,7 +3,7 @@ export const siteConfig = {
   title: "Joshua Tazeem | Software Architect & Full-Stack System Design",
   description:
     "Software Architect specializing in event-driven microservice architectures, reliability, and performance. Portfolio of Joshua Tazeem.",
-  url: "https://joshua-tazeem.vercel.app",
+  url: "https://joshua-portfolio-indol-one.vercel.app",
   ogImage: "/og.png",
   locale: "en_US",
   creator: "Joshua Tazeem",
