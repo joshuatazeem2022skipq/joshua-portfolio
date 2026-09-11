@@ -5,16 +5,68 @@ export interface JourneySection {
   label: string;
   /** Which side the HTML panel sits on; the planet occupies the other side. */
   panelSide: "left" | "right" | "center";
+  planetName: string;
+  planetDistance: string;
+  planetType: string;
 }
 
 export const JOURNEY_SECTIONS: JourneySection[] = [
-  { id: "hero", label: "Launch", panelSide: "center" },
-  { id: "about", label: "About", panelSide: "left" },
-  { id: "skills", label: "Skills", panelSide: "right" },
-  { id: "experience", label: "Experience", panelSide: "left" },
-  { id: "projects", label: "Projects", panelSide: "right" },
-  { id: "resume", label: "Resume", panelSide: "left" },
-  { id: "contact", label: "Contact", panelSide: "center" },
+  {
+    id: "hero",
+    label: "Launch",
+    panelSide: "center",
+    planetName: "Sol (The Sun)",
+    planetDistance: "0.0 AU",
+    planetType: "Departure Vector",
+  },
+  {
+    id: "about",
+    label: "About",
+    panelSide: "left",
+    planetName: "Saturn",
+    planetDistance: "9.5 AU",
+    planetType: "Ringed Sentinel",
+  },
+  {
+    id: "skills",
+    label: "Skills",
+    panelSide: "right",
+    planetName: "Jupiter",
+    planetDistance: "5.2 AU",
+    planetType: "The Great Gas Giant",
+  },
+  {
+    id: "experience",
+    label: "Experience",
+    panelSide: "left",
+    planetName: "Neptune",
+    planetDistance: "30.1 AU",
+    planetType: "Deep Ice Frontier",
+  },
+  {
+    id: "projects",
+    label: "Projects",
+    panelSide: "right",
+    planetName: "Mars",
+    planetDistance: "1.5 AU",
+    planetType: "The Red Frontier",
+  },
+  {
+    id: "resume",
+    label: "Resume",
+    panelSide: "left",
+    planetName: "Uranus",
+    planetDistance: "19.2 AU",
+    planetType: "Azure Ice Giant",
+  },
+  {
+    id: "contact",
+    label: "Contact",
+    panelSide: "center",
+    planetName: "Earth",
+    planetDistance: "1.0 AU",
+    planetType: "Terminal Orbit",
+  },
 ];
 
 const SPACING = 20;

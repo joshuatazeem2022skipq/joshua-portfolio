@@ -97,40 +97,88 @@ function MilkyWay() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Real textured Sun — placed far from the hero text                    */
+/* Real textured Sun with photorealistic organic Solar Corona & Flares */
 /* ------------------------------------------------------------------ */
 function RealSun() {
   const map = useTexture("/textures/2k_sun.jpg");
   const sun = useRef<THREE.Mesh>(null);
+  const coreCorona = useRef<THREE.Sprite>(null);
+  const midCorona = useRef<THREE.Sprite>(null);
+  const outerFumes = useRef<THREE.Sprite>(null);
+
+  // Smooth, organic radial glow textures with zero hard edges
+  const coreGlow = useGlowTexture("rgba(255, 245, 210, 0.95)");
+  const midGlow = useGlowTexture("rgba(255, 145, 15, 0.65)");
+  const outerGlow = useGlowTexture("rgba(235, 55, 0, 0.35)");
 
   useFrame(({ clock }) => {
-    if (sun.current) sun.current.rotation.y = clock.elapsedTime * 0.03;
+    const t = clock.elapsedTime;
+    if (sun.current) sun.current.rotation.y = t * 0.03;
+
+    // Organic solar breathing & flare pulsation
+    if (coreCorona.current) {
+      const s = 13.5 + Math.sin(t * 1.8) * 0.35;
+      coreCorona.current.scale.set(s, s, 1);
+    }
+    if (midCorona.current) {
+      const s = 21.0 + Math.sin(t * 1.2 + 0.5) * 0.7;
+      midCorona.current.scale.set(s, s, 1);
+    }
+    if (outerFumes.current) {
+      const s = 34.0 + Math.sin(t * 0.8 + 1.2) * 1.2;
+      outerFumes.current.scale.set(s, s, 1);
+    }
   });
 
   return (
     <group position={[-16, 7, -34]}>
+      {/* High-res textured Sun core */}
       <mesh ref={sun}>
         <sphereGeometry args={[4.2, 64, 64]} />
         <meshStandardMaterial
           map={map}
           emissiveMap={map}
           emissive="#ffffff"
-          emissiveIntensity={1.25}
+          emissiveIntensity={1.45}
           toneMapped={false}
         />
       </mesh>
-      <mesh scale={1.25}>
-        <sphereGeometry args={[4.2, 32, 32]} />
-        <meshBasicMaterial
-          color="#fb923c"
+
+      {/* Photorealistic volumetric solar corona: Core White-Hot Glow */}
+      <sprite ref={coreCorona} scale={[13.5, 13.5, 1]}>
+        <spriteMaterial
+          map={coreGlow}
           transparent
-          opacity={0.08}
-          side={THREE.BackSide}
+          opacity={0.88}
           blending={THREE.AdditiveBlending}
           depthWrite={false}
         />
-      </mesh>
-      <pointLight color="#fff1d6" intensity={220} distance={90} decay={1.6} />
+      </sprite>
+
+      {/* Mid Solar Plasma Corona: Vibrant Amber Fumes */}
+      <sprite ref={midCorona} scale={[21, 21, 1]}>
+        <spriteMaterial
+          map={midGlow}
+          transparent
+          opacity={0.6}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
+      </sprite>
+
+      {/* Outer Solar Flare Fumes: Deep Fiery Solar Wind */}
+      <sprite ref={outerFumes} scale={[34, 34, 1]}>
+        <spriteMaterial
+          map={outerGlow}
+          transparent
+          opacity={0.4}
+          blending={THREE.AdditiveBlending}
+          depthWrite={false}
+        />
+      </sprite>
+
+      {/* Radiating solar illumination */}
+      <pointLight color="#fff7ed" intensity={280} distance={110} decay={1.4} />
     </group>
   );
 }
@@ -269,7 +317,7 @@ function SceneContent({ mobile }: { mobile: boolean }) {
   return (
     <>
       <color attach="background" args={["#050213"]} />
-      <fog attach="fog" args={["#050213", 16, 80]} />
+      <fog attach="fog" args={["#050213", 16, 50]} />
       <ambientLight intensity={0.32} />
 
       <MilkyWay />

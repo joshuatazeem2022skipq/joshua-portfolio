@@ -46,12 +46,10 @@ export interface SkillItem {
   category:
     | "Frontend"
     | "Backend"
-    | "Mobile"
-    | "Cloud"
-    | "Database"
-    | "DevOps"
-    | "Languages"
-    | "Practices";
+    | "AI/LLM"
+    | "Data & Infrastructure"
+    | "Platform & Integrations"
+    | "Engineering";
   level: number;
   years?: number;
 }
@@ -66,6 +64,8 @@ export interface ProjectItem {
   technologies: string[];
   category: string;
   period: string;
+  image?: string;
+  statusBadge?: string;
   github?: string;
   live?: string;
   metrics?: string[];

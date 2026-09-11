@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
-import { Navbar } from "@/components/layout/Navbar";
 import { Providers } from "@/components/layout/Providers";
 import { siteConfig } from "@/lib/constants";
 import { personalInfo } from "@/lib/resume-data";
@@ -95,7 +94,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Providers>
-          <Navbar />
           <main>{children}</main>
         </Providers>
       </body>

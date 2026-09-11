@@ -1,4 +1,6 @@
 import { GalaxySceneLazy } from "@/features/galaxy/GalaxySceneLazy";
+import { PlanetBackdropWatermark } from "@/features/galaxy/PlanetBackdropWatermark";
+import { TopBrandHeader } from "@/components/layout/TopBrandHeader";
 import { JourneyNav } from "@/components/layout/JourneyNav";
 import { HeroSection } from "@/features/sections/HeroSection";
 import { AboutSection } from "@/features/sections/AboutSection";
@@ -12,6 +14,8 @@ export default function HomePage() {
   return (
     <>
       <GalaxySceneLazy />
+      <PlanetBackdropWatermark />
+      <TopBrandHeader />
       <JourneyNav />
       <HeroSection />
       <AboutSection />

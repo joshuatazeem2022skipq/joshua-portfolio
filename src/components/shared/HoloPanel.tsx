@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { WordReveal } from "@/components/ui/word-reveal";
+import { JOURNEY_SECTIONS } from "@/features/galaxy/journey";
 
 /** Sci-fi holographic glass panel with corner brackets and a scanline. */
 export function HoloPanel({
@@ -32,7 +33,7 @@ export function HoloPanel({
   );
 }
 
-/** "DESTINATION 02 · SKILLS" style header used at every stop. */
+/** "DESTINATION 02 · SKILLS" style header used at every stop with planetary approach telemetry. */
 export function DestinationHeader({
   index,
   label,
@@ -44,21 +45,47 @@ export function DestinationHeader({
   title: string;
   description?: string;
 }) {
+  const planetMeta = JOURNEY_SECTIONS[index];
+
   return (
     <div className="mb-8">
-      <motion.p
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="destination-tag flex items-center gap-3"
-      >
-        <span className="inline-block h-px w-8 bg-accent/70" aria-hidden />
-        Destination {String(index).padStart(2, "0")} · {label}
-      </motion.p>
+      {/* Top Telemetry & Planet Vector Badges */}
+      <div className="flex flex-wrap items-center justify-between gap-2.5">
+        <motion.p
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="destination-tag flex items-center gap-3"
+        >
+          <span className="inline-block h-px w-8 bg-accent/70" aria-hidden />
+          Destination {String(index).padStart(2, "0")} · {label}
+        </motion.p>
+
+        {planetMeta && (
+          <motion.div
+            initial={{ opacity: 0, x: 16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-flex items-center gap-2 rounded-full border border-sky-400/30 bg-sky-950/40 px-3 py-1 font-mono text-[0.68rem] text-sky-300 shadow-[0_0_15px_-3px_rgba(56,189,248,0.25)] backdrop-blur-md"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse" />
+            <span>
+              Target: <strong className="text-white font-semibold">{planetMeta.planetName}</strong>
+            </span>
+            <span className="text-sky-400/50">|</span>
+            <span className="text-muted/80">{planetMeta.planetDistance}</span>
+            <span className="hidden sm:inline text-sky-400/50">|</span>
+            <span className="hidden sm:inline text-accent/90">{planetMeta.planetType}</span>
+          </motion.div>
+        )}
+      </div>
+
       <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight text-foreground md:text-5xl">
-        <WordReveal text={title} delay={0.1} wordClassName="text-gradient" />
+        <WordReveal text={title} delay={0.1} wordClassName="text-gradient-vibrant" />
       </h2>
+
       {description && (
         <motion.p
           initial={{ opacity: 0, y: 18 }}

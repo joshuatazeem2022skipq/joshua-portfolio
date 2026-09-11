@@ -1,24 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050213;
-  --background-elevated: #0b0620;
-  --foreground: #f5f3ff;
-  --muted: #a29dc9;
-  --muted-foreground: #6f6a99;
-  --card: rgba(14, 8, 34, 0.55);
-  --card-border: rgba(192, 132, 252, 0.18);
-  --primary: #a855f7;
-  --primary-glow: #e879f9;
-  --accent: #2dd4bf;
-  --neon: #e879f9;
-  --sky: #7c3aed;
+  --background: #09090b;
+  --background-elevated: #18181b;
+  --foreground: #fafafa;
+  --muted: #a1a1aa;
+  --muted-foreground: #71717a;
+  --card: rgba(24, 24, 27, 0.65);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --primary: #2563eb;
+  --primary-glow: #3b82f6;
+  --accent: #38bdf8;
+  --neon: #60a5fa;
+  --sky: #0ea5e9;
   --gold: #fbbf24;
-  --success: #34d399;
-  --danger: #fb7185;
-  --ring: #c084fc;
-  --glass: rgba(14, 8, 34, 0.45);
-  --glass-strong: rgba(8, 4, 22, 0.72);
+  --success: #10b981;
+  --danger: #ef4444;
+  --ring: #3b82f6;
+  --glass: rgba(9, 9, 11, 0.45);
+  --glass-strong: rgba(9, 9, 11, 0.8);
 }
 
 @theme inline {
@@ -70,7 +70,7 @@ body {
 }
 
 ::selection {
-  background: rgba(232, 121, 249, 0.35);
+  background: rgba(59, 130, 246, 0.35);
   color: #fff;
 }
 
@@ -94,11 +94,11 @@ body {
   background: var(--glass-strong);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid rgba(192, 132, 252, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #f5d0fe 0%, #c084fc 45%, #2dd4bf 100%);
+  background: linear-gradient(135deg, #e0f2fe 0%, #3b82f6 45%, #0ea5e9 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -106,7 +106,7 @@ body {
 }
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 60%, #f59e0b 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #d97706 60%, #b45309 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -119,17 +119,17 @@ body {
   position: relative;
   background: linear-gradient(
     160deg,
-    rgba(16, 8, 38, 0.88),
-    rgba(6, 3, 18, 0.8)
+    rgba(24, 24, 27, 0.85),
+    rgba(9, 9, 11, 0.8)
   );
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(192, 132, 252, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.25rem;
   box-shadow:
-    0 0 0 1px rgba(45, 212, 191, 0.05),
-    0 24px 80px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(245, 208, 254, 0.08);
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 24px 80px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 
@@ -142,8 +142,8 @@ body {
     0deg,
     transparent 0px,
     transparent 3px,
-    rgba(192, 132, 252, 0.025) 3px,
-    rgba(192, 132, 252, 0.025) 4px
+    rgba(255, 255, 255, 0.02) 3px,
+    rgba(255, 255, 255, 0.02) 4px
   );
 }
 
@@ -151,7 +151,7 @@ body {
   position: absolute;
   width: 22px;
   height: 22px;
-  border-color: rgba(45, 212, 191, 0.75);
+  border-color: rgba(59, 130, 246, 0.6);
   border-style: solid;
   border-width: 0;
   pointer-events: none;
@@ -250,7 +250,7 @@ body {
   background: linear-gradient(
     180deg,
     transparent,
-    rgba(45, 212, 191, 0.06),
+    rgba(59, 130, 246, 0.05),
     transparent
   );
   animation: scan 7s linear infinite;
@@ -263,6 +263,91 @@ body {
 
 .scrollbar-none::-webkit-scrollbar {
   display: none;
+}
+
+/* ---------- Vibrant Glow & Cyber Accents ---------- */
+
+.glow-cyan {
+  box-shadow: 0 0 24px -4px rgba(56, 189, 248, 0.45);
+}
+
+.glow-neon {
+  box-shadow: 0 0 24px -4px rgba(96, 165, 250, 0.45);
+}
+
+.glow-purple {
+  box-shadow: 0 0 24px -4px rgba(168, 85, 247, 0.45);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 24px -4px rgba(16, 185, 129, 0.45);
+}
+
+.card-vibrant {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 27, 75, 0.28) 0%,
+    rgba(15, 23, 42, 0.7) 50%,
+    rgba(17, 24, 39, 0.85) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-vibrant:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow:
+    0 12px 36px -8px rgba(0, 0, 0, 0.6),
+    0 0 28px -6px rgba(56, 189, 248, 0.15);
+  transform: translateY(-2px);
+}
+
+.text-gradient-vibrant {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #e0f2fe 25%,
+    #38bdf8 65%,
+    #818cf8 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #ecfdf5 0%, #34d399 50%, #059669 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.badge-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.badge-glow:hover::after {
+  left: 100%;
 }
 
 /* Feather rocky dock into the galaxy — soft top edge, no hard cutout */
